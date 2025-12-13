@@ -9,15 +9,18 @@ public class Player : MonoBehaviour
     [SerializeField] float _jumpVelocity = 5f;
     [SerializeField] float _jumpDuration = 0.5f;
     [SerializeField] Sprite _jumpSprite;
+    [SerializeField] LayerMask _layerMask;
     public bool IsGrounded;   // CapitalCase for global variables
     Sprite _defaultSprite;
     SpriteRenderer _spriteRenderer;
-    private float _horizontal;
+    float _horizontal;
+    Animator _animator;
 
     void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _defaultSprite = _spriteRenderer.sprite;
+        _animator = GetComponent<Animator>();
     }
 
     void OnDrawGizmos()
@@ -35,7 +38,7 @@ public class Player : MonoBehaviour
         // Debug.Log("Updated at " + Time.time);  // get time elapsed since game started
 
         Vector2 origin = new Vector2(transform.position.x, transform.position.y - _spriteRenderer.bounds.extents.y);
-        var hit = Physics2D.Raycast(origin, Vector2.down, 0.1f);
+        var hit = Physics2D.Raycast(origin, Vector2.down, 0.1f, _layerMask);
 
         if (hit.collider)
             IsGrounded = true;
@@ -60,8 +63,8 @@ public class Player : MonoBehaviour
 
     void UpdateSprite()
     {
-        GetComponent<Animator>().SetBool("IsGrounded", IsGrounded);
-        GetComponent<Animator>().SetFloat("HorizontalSpeed", Math.Abs(_horizontal));
+        _animator.SetBool("IsGrounded", IsGrounded);
+        _animator.SetFloat("HorizontalSpeed", Math.Abs(_horizontal)); 
 
         if(_horizontal > 0)
             _spriteRenderer.flipX = false;
