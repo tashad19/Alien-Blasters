@@ -4,6 +4,9 @@ A physics-based 2D platformer game built in Unity using C#. In this game, I have
 
 # Demo
 <img width="600" alt="image" src="https://github.com/user-attachments/assets/9778c81f-fdb7-4471-9871-60ccbfacd0bf" />
+<br>
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/30bb0df2-1a73-4be2-b2ef-d63e38650c0d" />
+
 
 
 ## 🎮 Gameplay Features
