@@ -1,4 +1,4 @@
-# 2D Unity Platformer
+# Alien Blasters - 2D Platformer
 
 A physics-based 2D platformer game built in Unity using C#. In this game, I have included a robust character controller and an interactive environment having water and spring objects and obstacles like spikes.
 
